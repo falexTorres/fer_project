@@ -53,10 +53,10 @@ def cnn_model():
 	model.add(Dense(3072))
 	model.add(Activation('relu'))
 
-	model.add(Dense(num_classes, W_regularizer=l2(0.01)))
-	model.add(Activation('softmax'))
+	model.add(Dense(num_classes, activity_regularizer=l2(0.01)))
+	model.add(Activation('linear'))
 
-	model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+	model.compile(loss='', optimizer='sgd', metrics=['accuracy'])
 	return model
 
 # build the model
